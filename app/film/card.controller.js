@@ -5,10 +5,4 @@ angular.module('app').controller('cardCtrl', function (FilmSrv) {
         height: '214px',
 
     }
-    this.style2 = {
-        'background-color': 'red !important',
-        'color': 'blue',
-        'font-size': '40px'
-
-    }
 })
