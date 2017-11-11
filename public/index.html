@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>THE MOVIE DB</title>
+    <base href="/">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"  href="toast/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="app" ng-controller="filmCtrl">
+    <div ng-include="'app/UI/nav.template.html'"></div>
+    <div class="main container">
+    
+        <!-- card -->
+        <film-card 
+            ng-if="all"
+            ng-click="detail(film._id)"
+            ng-repeat="film in films" 
+            film="film" 
+            class="mb-10 p-40 col-md-6 col-sm-6 col-xs-12">
+         </film-card> <!-- fine card -->
+    
+         <!-- dettaglio film -->
+        <film-detail 
+            ng-if="!all" 
+            film="film" 
+            class="mb-10 p-40 col-md-12 col-sm-12 col-xs-12" >
+         </film-detail> <!-- fine dettaglio -->
+    </div>
+</body>
+
+
+<!-- dipendenze -->
+<script scr="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="angular/angular.min.js"></script>
+<script src="toast/dist/angular-toastr.tpls.min.js"></script>
+<!-- application -->
+<script src="app/app.js"></script>
+<!-- controller -->
+<script src="app/film/films.controller.js"></script>
+<script src="app/film/card.controller.js"></script>
+<!-- service -->
+<script src="app/film/films.service.js"></script>
+<!-- component -->
+<script src="app/film/card.component.js"></script>
+<script src="app/film/film.component.js"></script>
+<!-- utils -->
+<script src="app/utils/filter.js"></script>
+
+</html>
