@@ -5,6 +5,11 @@ angular.module('app').controller('filmCtrl', function (
     FilmSrv,
     GenreSrv,
 ) {
+
+    FilmSrv.registerObserverCB(() => {
+        $scope.shared = FilmSrv.getShared();
+    });
+
     var start = function () {
         FilmSrv.getAll()
             .then(function (result) {
