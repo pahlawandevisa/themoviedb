@@ -19,7 +19,7 @@ module.exports = function (app, express) {
     app.use('/api/tvs', require('./tvs'));
     app.use('/api/genres', require('./genre'));
     
-    app.get('/', (req, res) => {
+    app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
     });
 

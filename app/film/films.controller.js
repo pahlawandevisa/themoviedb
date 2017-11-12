@@ -5,7 +5,6 @@ angular.module('app').controller('filmCtrl', function (
     FilmSrv,
     GenreSrv,
 ) {
-
     var start = function () {
         FilmSrv.getAll()
             .then(function (result) {
@@ -27,7 +26,7 @@ angular.module('app').controller('filmCtrl', function (
                 console.log(err)
             })
     };
-    
+
     start();
 
 

@@ -4,7 +4,7 @@ angular.module('app')
         $stateProvider,
         $urlRouterProvider,
         $locationProvider) {
-        // $locationProvider.html5Mode(true).hashPrefix('!');
+        $locationProvider.html5Mode(true).hashPrefix('!');
         $urlRouterProvider.otherwise('/home');
         $urlRouterProvider.when('', '/home');
         $stateProvider
@@ -16,18 +16,17 @@ angular.module('app')
                 url: '/films',
                 templateUrl: 'app/routes/film/films.template.html',
                 controller: 'filmCtrl',
-                // resolve: {
-                // films: function (FilmSrv) {
-                //     return FilmSrv.getAll();
-                //     debugger;
-                // }
-                //  }
             })
             .state('film', {
-                url: '/film/:id',
+                url: '/film/{id}',
                 templateUrl: 'app/routes/film/film.template.html',
-                controller: function($scope,film){
+                controller: function ($rootScope, $scope, film) {
                     $scope.film = film.data;
+                    $rootScope.$on('$stateChangeStart', 
+                    function(event, toState, toParams, fromState, fromParams, options){ debugger;})
+                },
+                onEnter: function () {
+                    console.log("ciao");
                 },
                 resolve: {
                     film: function (FilmSrv, $stateParams) {
