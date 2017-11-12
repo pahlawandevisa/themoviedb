@@ -16,4 +16,16 @@ angular.module('app', ['toastr'])
             preventOpenDuplicates: false,
             target: 'body'
         });
-    });
+    })
+    .controller('mainCtrl', function ($scope) {
+
+        $scope.$on('nav-main', function (event, val) {
+            // tramite scope
+            // $scope.shared = val;
+
+            //tramite broadcast
+            $scope.$broadcast('main-films', val )
+
+
+        })
+    })
