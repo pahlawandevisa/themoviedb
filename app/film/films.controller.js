@@ -3,16 +3,8 @@ angular.module('app').controller('filmCtrl', function (
     $scope,
     toastr,
     FilmSrv,
-    GenreSrv
+    GenreSrv,
 ) {
-
-    $scope.all = true;
-
-    // broadcast del padre
-    $scope.$on('main-films', function (event, val) {
-        $scope.shared = val;
-
-    })
 
     var start = function () {
         FilmSrv.getAll()
@@ -35,28 +27,7 @@ angular.module('app').controller('filmCtrl', function (
                 console.log(err)
             })
     };
-    $scope.detail = function (id) {
-        FilmSrv.getOne(id)
-            .then(function (result) {
-                $scope.all = false;
-                $scope.film = result.data;
-                toastr.success('Ottima scelta!!', $scope.film.title);
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
-    }
-
-    $scope.start = function () {
-        start();
-    }
-
-    var updateShared = function () {
-        $scope.shared = FilmSrv.getShared();
-    }
-
-    FilmSrv.registerObserverCB(updateShared);
-
+    
     start();
 
 
