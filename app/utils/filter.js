@@ -13,3 +13,11 @@ angular.module('app')
             })
         }
     })
+    .filter('filtraPerGenere', function () {
+        return function (input, genid) {
+            if (!genid) return input;
+            return input.filter(function (film) {
+                return film.genre_ids.indexOf(genid) > -1;
+            })
+        }
+    })

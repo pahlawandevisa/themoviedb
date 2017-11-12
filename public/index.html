@@ -16,11 +16,17 @@
 <body ng-app="app" ng-controller="mainCtrl">
     <div ng-controller="navCtrl" ng-include="'app/UI/nav.template.html'"></div>
     <div class="main container" ng-controller="filmCtrl">
+        <!-- select generi -->
+        <div class="row">
+            <div class="col-md-2">
+                <select  class="form-control" ng-model="gen" ng-options="genere.id as genere.name for genere in generi"></select>
+            </div>
+        </div>
         <!-- card -->
         <film-card 
             ng-if="all" 
             ng-click="detail(film._id)" 
-            ng-repeat="film in films | filtraPerTitolo : shared" 
+            ng-repeat="film in films | filtraPerTitolo : shared | filtraPerGenere : gen track by $index" 
             film="film" 
             class="mb-10 p-40 col-md-6 col-sm-6 col-xs-12">
         </film-card>
@@ -38,14 +44,18 @@
 <script scr="bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="angular/angular.min.js"></script>
 <script src="toast/dist/angular-toastr.tpls.min.js"></script>
+<script src="angular-ui-router/release/angular-ui-router.min.js"></script>
 <!-- application -->
 <script src="app/app.js"></script>
+<!-- routes -->
+<script src="app/routes/routes.js"></script>
 <!-- controller -->
 <script src="app/film/films.controller.js"></script>
 <script src="app/film/card.controller.js"></script>
 <script src="app/ui/nav.controller.js"></script>
 <!-- service -->
 <script src="app/film/films.service.js"></script>
+<script src="app/genre/genres.service.js"></script>
 <!-- component -->
 <script src="app/film/card.component.js"></script>
 <script src="app/film/film.component.js"></script>

@@ -1,4 +1,7 @@
-angular.module('app', ['toastr'])
+angular.module('app', [
+    'ui.router',
+    'toastr'
+])
     .run(function () {
         console.log("Yahooo Angular is running!")
     })
@@ -24,7 +27,7 @@ angular.module('app', ['toastr'])
             // $scope.shared = val;
 
             //tramite broadcast
-            $scope.$broadcast('main-films', val )
+            $scope.$broadcast('main-films', val)
 
 
         })
