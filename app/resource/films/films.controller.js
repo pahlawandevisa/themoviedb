@@ -10,7 +10,7 @@ angular.module('app').controller('filmsCtrl', function (
         $scope.shared = FilmSrv.getShared();
     });
 
-    var start = function () {
+    var init = function () {
         FilmSrv.getAll()
             .then(function (result) {
                 $scope.all = true;
@@ -40,12 +40,5 @@ angular.module('app').controller('filmsCtrl', function (
 
     };
 
-    start();
-
-    $scope.test = function (val) {
-        console.log("ciao");
-        console.log(val);
-    }
-
-
+    init();
 })

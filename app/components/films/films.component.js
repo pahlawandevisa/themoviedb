@@ -4,6 +4,6 @@ angular.module('app').component('filmCard', {
         film: '=',
         onUpdate: '&'
     },
-    controller: 'cardCtrl',
+    controller: 'filmComponentCtrl',
     controllerAs: 'mv'
 });

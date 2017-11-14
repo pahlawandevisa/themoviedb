@@ -1,4 +1,4 @@
-angular.module('app').controller('cardCtrl', function (FilmSrv) {
+angular.module('app').controller('filmComponentCtrl', function (FilmSrv) {
 
     this.style = {
         width: '150px',
