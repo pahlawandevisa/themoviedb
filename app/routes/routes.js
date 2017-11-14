@@ -10,23 +10,18 @@ angular.module('app')
         $stateProvider
             .state('home', {
                 url: '/home',
-                templateUrl: 'app/routes/home.template.html',
+                template: 'todo',
             })
             .state('films', {
                 url: '/films',
-                templateUrl: 'app/routes/film/films.template.html',
-                controller: 'filmCtrl',
+                templateUrl: 'app/resource/films/films.template.html',
+                controller: 'filmsCtrl',
             })
             .state('film', {
                 url: '/film/{id}',
-                templateUrl: 'app/routes/film/film.template.html',
-                controller: function ($rootScope, $scope, film) {
-                    $scope.film = film.data;
-                    $rootScope.$on('$stateChangeStart', 
-                    function(event, toState, toParams, fromState, fromParams, options){ debugger;})
-                },
+                templateUrl: 'app/resource/films/film.template.html',
+                controller: 'filmCtrl',
                 onEnter: function () {
-                    console.log("ciao");
                 },
                 resolve: {
                     film: function (FilmSrv, $stateParams) {

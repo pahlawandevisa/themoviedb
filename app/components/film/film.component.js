@@ -1,5 +1,5 @@
 angular.module('app').component('filmDetail', {
-    templateUrl: 'app/film/film.template.html',
+    templateUrl: 'app/components/film/film.template.html',
     bindings: {
         film: '='
     },

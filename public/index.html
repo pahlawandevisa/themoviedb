@@ -14,15 +14,22 @@
 </head>
 
 <body ng-app="app">
-    <div ng-controller="navCtrl" ng-include="'app/UI/nav.template.html'"></div> 
-        <div class="main container">
-            <ui-view></ui-view>    
-        </div>
+    <div ng-controller="navCtrl" ng-include="'app/UI/nav.template.html'"></div>
+    <div class="main container">
+        <ui-view></ui-view>
+    </div>
 </body>
 
 
 <!-- dipendenze -->
-<script scr="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="flickrapi/browser/flickrapi.dev.js"></script>
+<script>
+    var flickr = new Flickr({
+        api_key: "dc3b727e966c18f4ccdb23e21c6ec54f",
+    });
+</script>
 <script src="angular/angular.min.js"></script>
 <script src="toast/dist/angular-toastr.tpls.min.js"></script>
 <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -31,15 +38,17 @@
 <!-- routes -->
 <script src="app/routes/routes.js"></script>
 <!-- controller -->
-<script src="app/film/films.controller.js"></script>
-<script src="app/film/card.controller.js"></script>
+<script src="app/resource/films/films.controller.js"></script>
+<script src="app/resource/films/film.controller.js"></script>
+<script src="app/components/films/films.controller.js"></script>
 <script src="app/ui/nav.controller.js"></script>
 <!-- service -->
-<script src="app/film/films.service.js"></script>
-<script src="app/genre/genres.service.js"></script>
+<script src="app/resource/films/films.service.js"></script>
+<script src="app/resource/genres/genres.service.js"></script>
 <!-- component -->
-<script src="app/film/card.component.js"></script>
-<script src="app/film/film.component.js"></script>
+<script src="app/components/films/films.component.js"></script>
+<script src="app/components/film/film.component.js"></script>
+<script src="app/components/foto/foto.component.js"></script>
 <!-- utils -->
 <script src="app/utils/filter.js"></script>
 

@@ -1,8 +1,9 @@
 angular.module('app').component('filmCard', {
-    templateUrl: 'app/film/card.template.html',
+    templateUrl: 'app/components/films/films.template.html',
     bindings: {
-        film: '='
+        film: '=',
+        onUpdate: '&'
     },
     controller: 'cardCtrl',
     controllerAs: 'mv'
-})
+});

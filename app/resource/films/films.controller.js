@@ -1,4 +1,4 @@
-angular.module('app').controller('filmCtrl', function (
+angular.module('app').controller('filmsCtrl', function (
     $rootScope,
     $scope,
     toastr,
@@ -29,10 +29,23 @@ angular.module('app').controller('filmCtrl', function (
             })
             .catch(function (err) {
                 console.log(err)
-            })
+            });
+
+        flickr.photosets.getPhotos({
+            photoset_id: "72157679734353370",
+            user_id: "116185134@N02"
+        },function(result){
+
+        })
+
     };
 
     start();
+
+    $scope.test = function (val) {
+        console.log("ciao");
+        console.log(val);
+    }
 
 
 })
