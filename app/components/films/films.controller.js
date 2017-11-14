@@ -1,15 +1,24 @@
-angular.module('app').controller('filmComponentCtrl', function (FilmSrv) {
-
-    this.style = {
+angular.module('app').controller('filmComponentCtrl', function (FilmSrv, $timeout, $scope) {
+    var vm = this;
+    vm.style = {
         width: '150px',
         height: '214px',
 
     }
-    this.$onInit = function () {
-        this.film.title = this.film.title.toUpperCase();
+    vm.$onInit = function () {
+        vm.film.title = vm.film.title.toUpperCase();
     }
-    this.change = function () {
-        this.film.title = this.film.title.split("").reverse().join("");
-        this.onUpdate();
+    vm.change = function () {
+        vm.film.title = vm.film.title.split("").reverse().join("");
+        vm.onUpdate();
     }
+    // setTimeout(()=>{
+    //     $scope.$apply(function(){
+
+    //         vm.test = 'lol';
+    //     });
+    // },500)
+    // $timeout(()=>{
+    //         vm.test = 'lol';
+    // },500)
 })

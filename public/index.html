@@ -14,9 +14,10 @@
 </head>
 
 <body ng-app="app">
-    <div ng-controller="navCtrl" ng-include="'app/UI/nav.template.html'"></div>
+    <div ui-view="nav"></div>
     <div class="main container">
-        <ui-view></ui-view>
+        <div ui-view="container"></div>
+<!-- <ui-view></ui-view> -->
     </div>
 </body>
 

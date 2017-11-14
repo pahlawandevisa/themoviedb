@@ -5,9 +5,6 @@
         </div>
         <ul class="nav navbar-nav">
             <li ui-sref-active="active">
-                <a style="cursor:pointer;" ui-sref="home">Home</a>
-            </li>
-            <li ui-sref-active="active">
                 <a ui-sref="films">Film</a>
             </li>
             <li ui-sref-active="active">
@@ -15,7 +12,7 @@
             </li>
 
         </ul>
-        <div class="navbar-header pull-right">
+        <div ng-if="stato" class="navbar-header pull-right">
             <input  ng-change="set()" style="margin:15px;" ng-model="$parent.search" type="text">
         </div>
     </div>
