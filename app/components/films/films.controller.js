@@ -12,13 +12,4 @@ angular.module('app').controller('filmComponentCtrl', function (FilmSrv, $timeou
         vm.film.title = vm.film.title.split("").reverse().join("");
         vm.onUpdate();
     }
-    // setTimeout(()=>{
-    //     $scope.$apply(function(){
-
-    //         vm.test = 'lol';
-    //     });
-    // },500)
-    // $timeout(()=>{
-    //         vm.test = 'lol';
-    // },500)
 })
