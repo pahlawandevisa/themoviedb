@@ -50,11 +50,32 @@ module.exports = (function () {
             });
 
     }
+    var voteOne = function (req, res) {
+        Film.findById(req.params.id)
+            .exec()
+            .then(function (film) {
+                var count = film.vote_count;
+                var voti = count + 1;
+                var media = film.vote_average;
+                var nuovovoto = req.body.voto_nostro;
+                var calcolo = ((media * count) + nuovovoto) / voti;
+                film.vote_average = calcolo;
+                film.vote_count = voti;
+                return film.save();
+
+            }).then(function (film) {
+                return res.status(200).json(film);
+            })
+            .catch(function (err) {
+                
+            });
+    }
 
     return {
         getAll: getAll,
         getOne: getOne,
         getByQuery: getByQuery,
-        insertOne: insertOne
+        insertOne: insertOne,
+        voteOne: voteOne
     }
 })();
