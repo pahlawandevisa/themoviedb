@@ -4,6 +4,7 @@ angular.module('app').controller('filmsCtrl', function (
     toastr,
     FilmSrv,
     GenreSrv,
+    $timeout
 ) {
 
     FilmSrv.registerObserverCB(() => {
@@ -31,14 +32,21 @@ angular.module('app').controller('filmsCtrl', function (
                 console.log(err)
             });
 
-        flickr.photosets.getPhotos({
-            photoset_id: "72157679734353370",
-            user_id: "116185134@N02"
-        },function(result){
-
-        })
 
     };
+    // flickr.photosets.getPhotos({
+    //     photoset_id: "72157679734353370",
+    //     user_id: "116185134@N02"
+    // }, function (result) { })
 
+    // $scope.timeouted = "ciao";
+    // $timeout(() => {
+    //     $scope.timeouted = "bau";
+    // }, 2000)
+    // setTimeout(() => {
+    //     $scope.$apply(() => {
+    //         $scope.timeouted = "miao";
+    //     });
+    // }, 4000)
     init();
 })

@@ -4,6 +4,7 @@ angular.module('app').component('filmDettaglio', {
         film: '<'
     },
     controller: function(){
+
         this.stars = [
             {
                 colorata:false
@@ -20,7 +21,8 @@ angular.module('app').component('filmDettaglio', {
             {
                 colorata:false
             },
-        ] 
+        ];
+
         this.colora = function(index){
             for(let i = 0; i<= index; i++) {
                 this.stars[i].colorata = true;
