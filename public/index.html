@@ -13,16 +13,18 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body ng-app="app" ng-controller="mainCtrl">
-    <div ng-controller="navCtrl" ng-include="'app/UI/nav.template.html'"></div>
+<body ng-app="app">
+   <div ui-view="menu"></div> 
+   <div ui-view="contenuto"></div> 
+    <!-- <div ng-controller="navCtrl" ng-include="'app/UI/nav.template.html'"></div>
     <div class="main container" ng-controller="filmCtrl">
-        <!-- select generi -->
+       
         <div class="row">
             <div class="col-md-2">
                 <select  class="form-control" ng-model="gen" ng-options="genere.id as genere.name for genere in generi"></select>
             </div>
         </div>
-        <!-- card -->
+        
         <film-card 
             ng-if="all" 
             ng-click="detail(film._id)" 
@@ -30,13 +32,13 @@
             film="film" 
             class="mb-10 p-40 col-md-6 col-sm-6 col-xs-12">
         </film-card>
-        <!-- fine card -->
+       
 
-        <!-- dettaglio film -->
+     
         <film-detail ng-if="!all" film="film" class="mb-10 p-40 col-md-12 col-sm-12 col-xs-12">
         </film-detail>
-        <!-- fine dettaglio -->
-    </div>
+     
+    </div>  -->
 </body>
 
 

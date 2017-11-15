@@ -4,13 +4,19 @@ angular.module('app')
         $stateProvider,
         $urlRouterProvider,
         $locationProvider) {
-        debugger;
         $locationProvider.html5Mode(true).hashPrefix('!');
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
             .state('/', {
                 url: '/',
-                template: '<h1>ciaoooone</h1>'
+                views: {
+                    'menu': {
+                        template:'il mio bel menu'
+                    },
+                    'contenuto': {
+                        template: 'il mio bel contenuto'
+                    },
+                }
             });
     });
