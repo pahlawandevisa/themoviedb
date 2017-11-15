@@ -1,13 +1,14 @@
+<div class="row card">
         <div class="pl-0 col-md-4">
-            <img class="card-img-top" style="width:200px !important;" ng-src="{{'https://image.tmdb.org/t/p/w500/'+mv.film.poster_path}}" alt="Card image cap">
+            <img class="card-img-top" style="width: 150px; height: 214px;" ng-src="{{'https://image.tmdb.org/t/p/w500/'+$ctrl.film.poster_path}}" alt="Card image cap">
         </div>
         <div class="col-md-8">
             <div class="row">
                 <div class="col-md-8">
-                    <h5 ng-bind="mv.film.title"></h5>
+                    <h5 ng-bind="$ctrl.film.title"></h5>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="text-right">{{mv.film.vote_average}}
+                    <h5 class="text-right">{{$ctrl.film.vote_average}}
                     <i class="fa fa-star" aria-hidden="true"></i>
                     </h5>
                 </div>
@@ -15,19 +16,16 @@
             <div class="row">
                 <div class="col-md-4">
                     <i class="fa fa-calendar grey" aria-hidden="true"></i>
-                    <span class="grey" ng-bind="mv.film.release_date | date: 'yyyy'"></span>
+                    <span class="grey" ng-bind="$ctrl.film.release_date | date: 'yyyy'"></span>
                 </div>
                 <div class="col-md-8">
-                    <div class="generi grey text-right"><span ng-repeat="genere in mv.film.genre">{{genere.name}},</span></div>
+                    <div class="generi grey text-right"><span ng-repeat="genere in $ctrl.film.genre">{{genere.name}},</span></div>
                 </div>
             </div>
             <div class="row mt-30">
                     <div class="col-md-12">
-                        <span class="grey" ng-bind="mv.film.overview | cut"></span>
+                        <span class="grey" ng-bind="$ctrl.film.overview | cut"></span>
                     </div>
             </div>
         </div>
-        <!-- <div class="card-body">
-        <p class="card-text" ng-bind="mv.film.overview | cut"></p>
     </div>
-</div> -->
