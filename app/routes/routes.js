@@ -5,8 +5,8 @@ angular.module('app')
         $urlRouterProvider,
         $locationProvider) {
         $locationProvider.html5Mode(true).hashPrefix('!');
-        $urlRouterProvider.otherwise('/home');
-        $urlRouterProvider.when('', '/home');
+        $urlRouterProvider.otherwise('/films');
+        $urlRouterProvider.when('', '/films');
         $stateProvider
             .state('home', {
                 url: '/home',
@@ -14,12 +14,12 @@ angular.module('app')
             })
             .state('films', {
                 url: '/films',
-                views:{
-                    'nav' : {
+                views: {
+                    'nav': {
                         templateUrl: 'app/UI/nav.template.html',
                         controller: 'navCtrl'
                     },
-                    'container' : {
+                    'container': {
                         templateUrl: 'app/resource/films/films.template.html',
                         controller: 'filmsCtrl',
                     },
@@ -27,24 +27,24 @@ angular.module('app')
             })
             .state('film', {
                 url: '/film/{id}',
-                 resolve: {
-                            film: function (FilmSrv, $stateParams) {
-                                return FilmSrv.getOne($stateParams.id);
-                            }
-                        },
-                views:{
-                    'nav' : {
+                resolve: {
+                    film: function (FilmSrv, $stateParams) {
+                        return FilmSrv.getOne($stateParams.id);
+                    }
+                },
+                views: {
+                    'nav': {
                         templateUrl: 'app/UI/nav.template.html',
                         controller: 'navCtrl'
                     },
-                    'container' : {
+                    'container': {
                         templateUrl: 'app/resource/films/film.template.html',
                         controller: 'filmCtrl',
                         onEnter: function () {
                         },
-                       
+
                     },
                 },
-               
+
             })
     });

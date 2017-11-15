@@ -3,38 +3,41 @@ angular.module('app').component('filmDettaglio', {
     bindings: {
         film: '<'
     },
-    controller: function(){
+    controller: function () {
 
         this.stars = [
             {
-                colorata:false
+                colorata: false
             },
             {
-                colorata:false
+                colorata: false
             },
             {
-                colorata:false
+                colorata: false
             },
             {
-                colorata:false
+                colorata: false
             },
             {
-                colorata:false
+                colorata: false
+            },
+            {
+                colorata: false
             },
         ];
 
-        this.colora = function(index){
-            for(let i = 0; i<= index; i++) {
+        this.colora = function (index) {
+            for (let i = 0; i <= index; i++) {
                 this.stars[i].colorata = true;
             }
         }
-        this.scolora = function(){
+        this.scolora = function () {
             this.stars.forEach(element => {
                 element.colorata = false;
             });
         }
-        this.vota = function(index){
-            console.log(index+1);
+        this.vota = function (index) {
+            console.log(index + 1);
             this.mostra = false;
         }
     },
