@@ -4,13 +4,13 @@
             <a class="navbar-brand">The Movie DB</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active">
-                <a style="cursor:pointer;" ng-click="$parent.start()">Home</a>
+            <li ui-sref-active="active">
+                <a ui-sref="/">Home</a>
             </li>
-            <li>
-                <a>Film</a>
+            <li ui-sref-active="active">
+                <a ui-sref="films">Film</a>
             </li>
-            <li>
+            <li ui-sref-active="active">
                 <a>Serie TV</a>
             </li>
 
