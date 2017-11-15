@@ -10,5 +10,7 @@ films.get('/:id([0-9a-f]{24})', filmController.getOne);
 films.get('/query', filmController.getByQuery);
 // inserimento
 films.post('/', filmController.insertOne);
+// inserimento
+films.put('/voto/:id([0-9a-f]{24})', filmController.voteOne);
 
 module.exports = films;
