@@ -14,8 +14,17 @@ angular.module('app').service('FilmsSrv', function ($http) {
         });
     }
 
+    var setRating = function (id, voto) {
+        return $http({
+            method: 'PUT',
+            url: 'api/films/voto/' + id,
+            data: voto
+        });
+    }
+
     return {
         getAll,
-        getOne
+        getOne,
+        setRating
     }
 });

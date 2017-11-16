@@ -10,9 +10,19 @@
                     <h5 ng-bind="mv.film.title"></h5>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="text-right">{{mv.film.vote_average}}
-                        <i class="fa fa-star" aria-hidden="true"></i>
+                    <h5 class="text-right">{{mv.film.vote_average | number:1}}
+                        <i class="fa fa-star" aria-hidden="true" ng-click="mv.visibile = !mv.visibile"></i>
                     </h5>
+                    <div ng-hide="!mv.visibile" class="pull-right">
+                        <i 
+                            style="margin-left:3px;" 
+                            class="fa fa-star"  
+                            ng-repeat="stella in mv.stelle" 
+                            ng-mouseover="mv.colora($index)"
+                            ng-mouseleave="mv.decolora()"
+                            ng-click="mv.vota($index)"
+                            ng-class="{'colorata':stella.colorata}"></i>
+                    </div>
                 </div>
             </div>
             <div class="row">
