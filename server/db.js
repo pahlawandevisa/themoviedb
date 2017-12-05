@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var dbconnect = process.env.connect || 'mongodb://localhost:27017';
+// var dbconnect = process.env.connect || 'mongodb://localhost:27017';
 mongoose.
-    connect(dbconnect + '/themoviesdb',
+    connect('mongodb://admin:admin@ds157185.mlab.com:57185/themoviesdb',
     { useMongoClient: true },
     function (err) {
         if (err) {

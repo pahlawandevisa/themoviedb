@@ -10,7 +10,6 @@ module.exports = function (app, express) {
     app.use('/angular', express.static(path.join(__dirname, '..', '..', 'node_modules', 'angular')));
     app.use('/toast', express.static(path.join(__dirname, '..', '..', 'node_modules', 'angular-toastr')));
     app.use('/angular-ui-router', express.static(path.join(__dirname, '..', '..', 'node_modules', 'angular-ui-router')));
-    app.use('/flickrapi', express.static(path.join(__dirname, '..', '..', 'node_modules', 'flickrapi')));
     app.use('/images', express.static(path.join(__dirname, '..', '..', 'public', 'images')));
     app.use('/css', express.static(path.join(__dirname, '..', '..', 'public', 'css')));
     app.use('/app', express.static(path.join(__dirname, '..', '..', 'app')));
