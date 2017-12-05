@@ -67,7 +67,18 @@ module.exports = (function () {
                 return res.status(200).json(film);
             })
             .catch(function (err) {
-                
+
+            });
+    }
+
+    var remove = function (req, res) {
+        Film.findByIdAndRemove(req.params.id)
+            .exec()
+            .then(function (film) {
+                res.status(200).json(film);
+            })
+            .catch(function (err) {
+
             });
     }
 
@@ -76,6 +87,7 @@ module.exports = (function () {
         getOne: getOne,
         getByQuery: getByQuery,
         insertOne: insertOne,
-        voteOne: voteOne
+        voteOne: voteOne,
+        remove: remove
     }
 })();

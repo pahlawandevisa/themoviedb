@@ -30,8 +30,17 @@ angular.module('app').service('FilmSrv', function (
         shared = value;
         notifyObserver();
     };
+
     var getShared = function () {
         return shared;
+    };
+
+    var remove = function (id) {
+        debugger;
+        return $http({
+            method: 'DELETE',
+            url: url + 'films/' + id
+        });
     };
 
 
@@ -41,7 +50,8 @@ angular.module('app').service('FilmSrv', function (
         setShared,
         shared,
         registerObserverCB,
-        getShared
+        getShared,
+        remove
     }
 
 });
