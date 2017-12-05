@@ -10,7 +10,7 @@ background-image:radial-gradient(circle at 20% 50%, rgba(2.75%, 2.75%, 2.75%, 0.
                     <h5 ng-bind="mv.film.title"></h5>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="text-right">{{mv.film.vote_average}}
+                    <h5 class="text-right">{{mv.film.vote_average | number:1}}
                         <i ng-click="mv.mostra = !mv.mostra" class="fa fa-star" aria-hidden="true"></i>
                     </h5>
                     <div ng-if="mv.mostra" class="pull-right stelle">
