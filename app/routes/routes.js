@@ -26,7 +26,7 @@ angular.module('app')
                 },
             })
             .state('film', {
-                url: '/film/{id}',
+                url: '/film/{id:[0-9a-f]{24}}',
                 resolve: {
                     film: function (FilmSrv, $stateParams) {
                         return FilmSrv.getOne($stateParams.id);
@@ -40,6 +40,29 @@ angular.module('app')
                     'container': {
                         templateUrl: 'app/resource/films/film.template.html',
                         controller: 'filmCtrl',
+                        onEnter: function () {
+                        },
+
+                    },
+                },
+
+            })
+            .state('creamodifica', {
+                url: '/film/update/{id:[0-9a-f]{24}}',
+                resolve: {
+                    film: function (FilmSrv, $stateParams) {
+                        if (!$stateParams.id) return null;
+                        return FilmSrv.getOne($stateParams.id);
+                    }
+                },
+                views: {
+                    'nav': {
+                        templateUrl: 'app/UI/nav.template.html',
+                        controller: 'navCtrl'
+                    },
+                    'container': {
+                        templateUrl: 'app/resource/films/newupdatefilm.template.html',
+                        controller: 'newupdateCtrl',
                         onEnter: function () {
                         },
 
