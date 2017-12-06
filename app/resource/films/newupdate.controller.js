@@ -26,8 +26,22 @@ angular.module('app').controller('newupdateCtrl', function (
     $scope.inserisci = function () { 
         if (!$scope.film.genre.some((gen) => {
             return gen.id == $scope.gen.id
-        }))
+        })) { 
             $scope.film.genre.push($scope.gen);
+            $scope.film.genre_ids.push($scope.gen.id);
+
+        }
+        
+    }
+
+    $scope.salva = function () { 
+        FilmSrv.update($scope.film)
+            .then(() => { 
+                $state.go('films')
+            })
+            .catch((err) => { 
+                console.log(err);
+            });
     }
 
 });

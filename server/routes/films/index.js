@@ -14,5 +14,7 @@ films.post('/', filmController.insertOne);
 films.put('/voto/:id([0-9a-f]{24})', filmController.voteOne);
 // remove
 films.delete('/:id([0-9a-f]{24})', filmController.remove);
+// update
+films.put('/:id([0-9a-f]{24})', filmController.update);
 
 module.exports = films;

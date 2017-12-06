@@ -41,6 +41,14 @@ angular.module('app').service('FilmSrv', function (
             url: url + 'films/' + id
         });
     };
+    
+    var update = function (film) {
+        return $http({
+            method: 'PUT',
+            url: url + 'films/' + film._id,
+            data: film
+        });
+    };
 
 
     return {
@@ -50,7 +58,8 @@ angular.module('app').service('FilmSrv', function (
         shared,
         registerObserverCB,
         getShared,
-        remove
+        remove,
+        update
     }
 
 });

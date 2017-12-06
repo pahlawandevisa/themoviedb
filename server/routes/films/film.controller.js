@@ -81,6 +81,18 @@ module.exports = (function () {
 
             });
     }
+    
+    var update = function (req, res) {
+        Film.findByIdAndUpdate(req.params.id, { $set: req.body })
+            .exec()
+            .then(function (film) {
+                console.log('film aggiornato');
+                res.status(200).json(film);
+            })
+            .catch(function (err) {
+                res.status(500).send(err);
+            });
+    }
 
     return {
         getAll: getAll,
@@ -88,6 +100,7 @@ module.exports = (function () {
         getByQuery: getByQuery,
         insertOne: insertOne,
         voteOne: voteOne,
-        remove: remove
+        remove: remove,
+        update: update
     }
 })();
