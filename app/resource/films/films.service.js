@@ -36,7 +36,6 @@ angular.module('app').service('FilmSrv', function (
     };
 
     var remove = function (id) {
-        debugger;
         return $http({
             method: 'DELETE',
             url: url + 'films/' + id

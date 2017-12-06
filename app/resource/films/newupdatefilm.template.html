@@ -1,1 +1,65 @@
-ciao
+<div style="background-image:url(https://image.tmdb.org/t/p/w500{{film.backdrop_path}});background-size: cover;">
+    <div class="row" style="color:#dfdfdf; 
+background-image:radial-gradient(circle at 20% 50%, rgba(2.75%, 2.75%, 2.75%, 0.85) 0%, rgba(17.25%, 18.04%, 17.65%, 0.94) 100%);">
+        <div class="pl-0 col-md-4">
+            <img class="card-img-top" style="height: 500px" ng-src="{{'https://image.tmdb.org/t/p/w500/'+film.poster_path}}" alt="Card image cap">
+        </div><br><br>
+        <div class="col-md-8">
+            <!-- <div class="row">
+                <div class="col-md-8">
+                    <h5 ng-bind="film.title"></h5>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-right">{{film.vote_average | number:1}}
+                        <i ng-click="mostra = !mostra" class="fa fa-star" aria-hidden="true"></i>
+                    </h5>
+                    <div ng-if="mostra" class="pull-right stelle">
+                        <i class="fa fa-star" ng-class="{'yellow':s.colorata}" ng-repeat="s in stars" ng-mouseover="colora($index)" ng-mouseleave="scolora()"
+                            ng-click="vota($index)"></i>
+                    </div>
+                    <div ng-if="mostra" class="triangle"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <span ng-bind="film.release_date | date: 'yyyy'"></span>
+                </div>
+                <div class="col-md-8">
+                    <div class="generi text-right">
+                        <span ng-repeat="genere in film.genre">{{genere.name}},</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-30">
+                <div class="col-md-12">
+                    <span ng-bind="film.overview"></span>
+                </div>
+            </div> -->
+            <form class="col-md-6" ng-submit="salva()">
+                <div class="form-group">
+                    <label for="titolo">Titolo</label>
+                    <input type="text" class="form-control" id="titolo" aria-describedby="emailHelp" placeholder="titolo" ng-model="film.title">
+                </div>
+                <div class="form-group">
+                    <label for="copertina">Copertina</label>
+                    <input type="text" class="form-control" id="copertina" aria-describedby="emailHelp" placeholder="copertina" ng-model="film.poster_path">
+                </div>
+                <div class="form-group">
+                    <label for="genere">Genere</label>
+                    <select id="genere" class="form-control" ng-model="gen" ng-options="genere as genere.name for genere in generi" ng-change="inserisci()"></select>
+                </div>
+                <div class="row" style="margin-bottom:10px;">
+                    <div class="col.md-12">
+                        <span class="chips" ng-repeat="gen in film.genre" ng-click="remove($index)" ng-bind="gen.name"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" class="form-control" id="date" aria-describedby="emailHelp" ng-model="film.release_date">
+                </div>
+                <button type="submit" class="btn btn-success">Salva</button>
+            </form>
+        </div>
+    </div>
+</div>

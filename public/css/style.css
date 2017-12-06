@@ -60,3 +60,12 @@ html,body{
     top: 25px;
     right: 15px;
 }
+
+.chips{
+    cursor: pointer;
+    background: cornflowerblue;
+    padding: 6px;
+    border-radius: 10px;
+    margin: 9px;
+
+}
